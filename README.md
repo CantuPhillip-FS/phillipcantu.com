@@ -11,4 +11,10 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 This project was built as part of **Full Sail University’s WDV463 - Deployment of Web Applications - Online** course.
 
-> _Last updated: November 25, 2025_
+> _Last updated: November 26, 2025_
+
+## 💻 Deployment
+
+This app's main branch is currently and continuously deployed on Vercel and viewable at:
+
+<a href="https://deploy-web-apps.vercel.app/" taget="_blank">deploy-web-apps.vercel.app</a>
