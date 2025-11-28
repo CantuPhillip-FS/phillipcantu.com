@@ -17,7 +17,7 @@ const Navbar = () => {
         <Link
           key={page.slug}
           href={page.path}
-          className="text-2xl transition-all duration-350 hover:text-slate-400 hover:underline underline-offset-4"
+          className="px-4 py-2 text-2xl transition-all duration-250 text-gray-600 hover:text-slate-200 hover:outline-2 outline-yellow-200 rounded-xl"
         >
           {page.slug}
         </Link>

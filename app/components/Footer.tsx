@@ -6,6 +6,7 @@ const Footer = () => {
         href="http://github.com/hereisphil"
         target="_blank"
         rel="noopener noreferrer"
+        className="underline underline-offset-4 transition duration-250 hover:text-slate-100"
       >
         Phillip Cantu
       </a>
