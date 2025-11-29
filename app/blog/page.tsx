@@ -32,7 +32,7 @@ const Blog = () => {
       <h1 className="text-center text-3xl font-bold text-blue-400 mb-8">
         The Posts
       </h1>
-      <div className="grid grid-cols-3 gap-8 max-w-5xl">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl">
         {blogPosts.map((post) => (
           <article
             key={post.title}

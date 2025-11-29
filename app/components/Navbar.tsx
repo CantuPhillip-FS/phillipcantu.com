@@ -24,7 +24,7 @@ const Navbar = () => {
           </Link>
         ))}
       </header>
-      <hr className="border border-slate-500 min-w-lg mb-4 mx-auto" />
+      <hr className="border border-slate-500 min-w-36 med:min-w-lg mb-4 mx-auto" />
     </>
   );
 };
