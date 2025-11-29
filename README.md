@@ -11,7 +11,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 This project was built as part of **Full Sail University’s WDV463 - Deployment of Web Applications - Online** course.
 
-> _Last updated: November 26, 2025_
+> _Last updated: November 29, 2025_
 
 ## 💻 Deployment
 
