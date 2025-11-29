@@ -5,11 +5,11 @@ const Hero = () => {
     <section className="max-w-5xl flex flex-col-reverse md:grid md:grid-cols-3 gap-8 items-center">
       <div className="md:col-span-2 space-y-4">
         <div className="flex flex-col items-center md:grid gap-1">
-          <h2 className="font-bold text-2xl text-yellow-200">Phillip Cantu</h2>
-          <p className="text-sm text-gray-400">
+          <h2 className="font-bold text-2xl text-orange-400">Phillip Cantu</h2>
+          <p className="text-sm text-slate-400">
             Full Stack Developer | Full Sail University
           </p>
-          <p className="space-x-2 text-sm text-blue-300 indent-2">
+          <p className="space-x-2 text-sm text-blue-400 indent-2">
             <span className="transition duration-250 hover:text-slate-100">
               &#8594;
               <a
