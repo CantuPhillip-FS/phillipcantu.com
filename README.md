@@ -9,13 +9,46 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## 📘 Overview
 
-This project was built as part of **Full Sail University’s WDV463 - Deployment of Web Applications - Online** course.
+This project was built as part of **Full Sail University’s WDV463 – Deployment of Web Applications – Online** course.  
+It serves as both a **personal portfolio** and a **blog**, built with **Next.js 16**, **Tailwind CSS**, and **MDX**.
 
 > _Last updated: November 30, 2025_
 
 ## 💻 Deployment
 
-This app's main branch is currently and continuously deployed on Vercel and viewable at:
-<a href="https://deploy-web-apps.vercel.app/" taget="_blank">deploy-web-apps.vercel.app</a>
-as well as:
-<a href="https://phillipcantu.com/" taget="_blank">phillipcantu.com</a>
+This application is continuously deployed on Vercel and available at:
+
+- <a href="https://deploy-web-apps.vercel.app/" target="_blank">deploy-web-apps.vercel.app</a>
+- <a href="https://phillipcantu.com/" target="_blank">phillipcantu.com</a>
+
+## 📝 MDX Resources Used
+
+These resources directly supported the setup and customization of MDX:
+
+- **Next.js MDX Documentation:**  
+  https://nextjs.org/docs/app/guides/mdx
+
+- **YouTube – Lee Robinson (@leerob): “MDX with Next.js App Router”**  
+  https://www.youtube.com/watch?v=34bRv6cQezo
+
+- **YouTube – Alex (@apestein-dev): “Best Way to Use Markdown in Next.js (Blogs/Docs)”**  
+  https://www.youtube.com/watch?v=0pEbT-NwmHk
+
+## 🔧 Recent Commit Highlights
+
+A summarized, human-readable version of the progression of this project:
+
+- Created & integrated **Navbar** into `layout.tsx`
+- Added `/blog` page with initial routing
+- Style updates and Tailwind cleanup
+- Added **Footer**, removed default boilerplate styles, improved Tailwind structure
+- Created **Hero** section and improved responsive layout
+- Set up **MDX** and created the first blog post
+- Added blog listing using an array of post objects
+- Improved mobile styles and adjusted configuration for real device testing
+- UI/UX refinements, semantic improvements, and layout polish
+- Root layout updates including improved `<main>` behavior
+
+---
+
+Thanks for checking out the project — this portfolio/blog will continue to evolve as I grow as a developer.
