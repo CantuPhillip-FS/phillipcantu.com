@@ -32,28 +32,31 @@ const Blog = () => {
       <h1 className="text-center text-3xl font-bold text-blue-400 mb-8">
         The Posts
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl">
         {blogPosts.map((post) => (
-          <article
-            key={post.title}
-            className="
-            bg-orange-400/50 hover:bg-orange-400 transition duration-300 
+          <Link key={post.title} href={`/blog/${post.path}`}>
+            <article
+              // key={post.title}
+              className="
+            bg-orange-400 hover:bg-orange-300 active:bg-orange-200 transition duration-300 
             shadow-lg shadow-orange-300/30 hover:shadow-orange-300/60
             py-8 px-4 rounded-xl 
             flex flex-col gap-4
             overflow-hidden
             max-h-60"
-          >
-            <h2 className="font-bold text-xl text-gray-950">
-              <Link href={`blog/${post.path}`}>&#8594;{post.title}</Link>
-            </h2>
-            <h3>
-              <Link href={`blog/${post.path}`}>{post.subtitle}</Link>
-            </h3>
-            <p className="tx-sm text-gray-300 text-center">
-              <em>p.s. this is the only linked/viewable blog post</em>
-            </p>
-          </article>
+            >
+              <h2 className="font-bold text-xl text-gray-950 text-center underline underline-offset-4">
+                {post.title}
+              </h2>
+              <h3>
+                <span className="text-gray-800 text-3xl font-bold">&#34;</span>
+                {post.subtitle}
+              </h3>
+              <p className="text-sm text-gray-800">
+                <em>p.s. this is the only linked/viewable blog post</em>
+              </p>
+            </article>
+          </Link>
         ))}
       </div>
     </div>

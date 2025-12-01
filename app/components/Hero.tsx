@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="max-w-5xl flex flex-col-reverse md:grid md:grid-cols-3 gap-8 items-center">
+    <section className="max-w-5xl mx-auto flex flex-col-reverse md:grid md:grid-cols-3 gap-8 items-center">
       <div className="md:col-span-2 space-y-4">
         <div className="flex flex-col items-center md:grid gap-1">
           <h2 className="font-bold text-2xl text-orange-400">Phillip Cantu</h2>
@@ -10,7 +10,7 @@ const Hero = () => {
             Full Stack Developer | Full Sail University
           </p>
           <p className="space-x-2 text-sm text-blue-400 indent-2">
-            <span className="transition duration-250 hover:text-slate-100">
+            <span className="transition duration-300 hover:text-slate-100 active:text-slate-100">
               &#8594;
               <a
                 href="https://linkedin.com/in/phillipcantu"
@@ -20,7 +20,7 @@ const Hero = () => {
                 LinkedIn
               </a>
             </span>
-            <span className="transition duration-250 hover:text-slate-100">
+            <span className="transition duration-300 hover:text-slate-100 active:text-slate-100">
               &#8594;
               <a
                 href="https://github.com/hereisphil"
@@ -33,13 +33,13 @@ const Hero = () => {
           </p>
         </div>
         <p>
-          Hi. I&#39;m a full-stack web developer. A graduate of 4Geeks
-          Academy&#39;s Fullstack + AI bootcamp and am currently attending Full
-          Sail University, expected graduation February 2027. I&#39;m from
-          Arizon and am a USA Army Vet.
+          Hi. I&#39;m a full-stack web developer, a graduate of 4Geeks
+          Academy&#39;s Fullstack + AI bootcamp, and I&#39;m currently attending
+          Full Sail University with an expected graduation in February 2027.
+          I&#39;m from Arizona and I&#39;m a U.S. Army veteran.
         </p>
       </div>
-      <div className="max-w-60 border-8 border-slate-200 rounded-full opacity-60 transition duration-400 hover:opacity-100 grid">
+      <div className="max-w-60 border-8 border-slate-200 rounded-full md:opacity-60 transition duration-300 hover:opacity-100 grid">
         <Image
           src="/profile/phillip-cantu-01.jpeg"
           width={2160}
