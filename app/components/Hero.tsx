@@ -9,7 +9,7 @@ const Hero = () => {
           <p className="text-sm text-slate-400">
             Full Stack Developer | Full Sail University
           </p>
-          <p className="space-x-2 text-sm text-blue-400 indent-2">
+          <p className="space-x-2 text-sm text-blue-400 md:indent-2">
             <span className="transition duration-300 hover:text-slate-100 active:text-slate-100">
               &#8594;
               <a
