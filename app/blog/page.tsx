@@ -14,10 +14,10 @@ const Blog = () => {
       subtitle: "a simple intro",
     },
     {
-      path: "#",
-      title: "Test Title A",
+      path: "building-an-api-in-react",
+      title: "Building an API in React.js",
       subtitle:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna eros, eleifend vel turpis a, feugiat condimentum nisl. Vivamus ac molestie ante. Etiam mollis ex id nisl vulputate, sed lacinia augue cursus. Curabitur dignissim risus non magna viverra pellentesque. Mauris placerat ornare erat molestie porttitor. Nulla molestie nunc a tristique accumsan. Fusce vitae libero scelerisque, tincidunt neque maximus, faucibus dolor. Mauris et arcu tincidunt neque imperdiet placerat. Vivamus non molestie eros, ut laoreet erat. Ut consectetur at velit vitae congue. Cras mattis nulla ac porta tincidunt. Mauris nibh massa, faucibus eu nulla vitae, lacinia bibendum velit.",
+        "Creating and deploying a RESTful API full CRUD-based app in React.js from scratch, without the use of AI tab-completions, is a significant milestone for any web development student, and it's still a big task for senior devs.",
     },
     {
       path: "#",
