@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import { ComponentPropsWithoutRef } from "react";
+import { highlight } from "sugar-high";
 
 // Inspriration taken from former Vecel employee Lee Robinson
 // From this Next.js 15 with MDX blog tutorial on YouTube here:
@@ -13,6 +14,7 @@ type ListProps = ComponentPropsWithoutRef<"ul">;
 type ListItemProps = ComponentPropsWithoutRef<"li">;
 type AnchorProps = ComponentPropsWithoutRef<"a">;
 type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
+type CodeProps = ComponentPropsWithoutRef<"code">;
 
 const components: MDXComponents = {
   h1: (props: HeadingProps) => (
@@ -102,6 +104,47 @@ const components: MDXComponents = {
       >
         {children}
       </a>
+    );
+  },
+
+  // Code blocks + inline code using Sugar High
+  code: ({ children, className, ...props }: CodeProps) => {
+    const raw = String(children ?? "");
+    const isInline = !raw.includes("\n");
+
+    // Inline code – simple and in-line with palette
+    if (isInline) {
+      return (
+        <code
+          className={[
+            "rounded bg-slate-900/60 px-1.5 py-0.5 text-sm font-mono text-yellow-200",
+            className,
+          ]
+            .filter(Boolean)
+            .join(" ")}
+          {...props}
+        >
+          {children}
+        </code>
+      );
+    }
+
+    // Multi-line code block – highlight with Sugar High
+    const codeHTML = highlight(raw);
+
+    return (
+      <code
+        className={[
+          "block w-full overflow-x-auto rounded-lg bg-slate-900/70 px-4 py-3",
+          "text-sm font-mono text-slate-100",
+          "shadow-lg shadow-slate-900/60",
+          className,
+        ]
+          .filter(Boolean)
+          .join(" ")}
+        dangerouslySetInnerHTML={{ __html: codeHTML }}
+        {...props}
+      />
     );
   },
 

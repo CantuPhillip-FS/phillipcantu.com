@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+:root {
+  /* Roughly aligned with your Tailwind palette */
+  --sh-class: #facc15; /* yellow-400 */
+  --sh-identifier: #e5e7eb; /* slate-200 */
+  --sh-keyword: #60a5fa; /* blue-400 */
+  --sh-string: #34d399; /* emerald-400 */
+  --sh-comment: #9ca3af; /* gray-400 */
+  --sh-number: #f97316; /* orange-500 */
+}

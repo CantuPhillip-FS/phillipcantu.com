@@ -6,7 +6,7 @@ import vsCodeScreenshot from "./vscode-screenshot-01.png";
 > Phillip Cantu | 2025.12.05
 
 Creating and deploying a RESTful API full CRUD-based app in React.js from scratch, without the use of AI tab-completions,
-is a significant milestone for any web development student, and it's still a big task for senior devs.
+is a significant milestone for any web development student, and a still a big task for senior devs.
 
 However...
 
@@ -21,3 +21,64 @@ However...
   className="max-w-90 md:max-w-4xl"
 />
 _VS Code Screenshot of a React.js fullstack app._
+
+The above sceenshot shows a fullstack React.js + Express.js application with defined CRUD routes in `/Server/app/routes`
+and today we're going to discuss all that's invovled in doing so.
+
+This blog post is going to assume that you have basic experience and understand of: HTML, CSS,
+JavaScript, and how to use an IDE (like Visual Studio Code) and the Terminal/Console on your
+operating system. We will be building this out in TypeScript, but if you're not experienced with TS,
+don't worry - you should easily get the hang of it if you have a firm grasp on JavaScript.
+
+### Tech Stack
+
+- Backend (Server)
+  - Node.js
+  - Express.js
+  - Mongoose
+  - TypeScript
+  - Extra Libraries: cors, dotenv, morgan, and types for TypeScript
+- Frontend (Client)
+  - React.js
+  - React-Router
+  - TypeScript
+  - Vite
+  - CSS (global, modules, or Tailwind are recommend)
+  - Extra Libraries: react-hot-toast, and types for TypeScript
+
+### Setting up Backend
+
+> I prefer terminal and that's the route I'm going to take
+
+1. Open your terminal and make and change into a directory for this project.
+
+```bash
+mkdir example-api-app && cd example-api-app
+```
+
+<br />
+
+2. Since we will need a backend server and a frontend client let's make two more folders.
+
+```bash
+mkdir server
+mkdir client
+```
+
+<br />
+
+3. Let's start on our server and scaffold our app.
+
+```bash
+cd server
+npm init -y
+npm install npm i express cors dotenv morgan mongoose
+npm install -D typescript tsx ts @types/node @types/express @types/morgan @types/cors
+```
+
+<br />
+What did we do? With the above commands we initialized a **Node.js** project with
+`npm init -y` which also created the `package.json` file. The `npm install` command
+installed all of the libaries that'll be used on our server while the `npm install
+-D` installed all of the libaries we'll be using during development, TypeScript and
+its types.
