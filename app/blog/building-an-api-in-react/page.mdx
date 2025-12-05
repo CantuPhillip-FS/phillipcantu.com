@@ -3,7 +3,7 @@ import vsCodeScreenshot from "./vscode-screenshot-01.png";
 
 # Building an API in React.js
 
-> Phillip Cantu | 2025.12.05
+> Phillip Cantu | 2025.12.05 <br /> Full Stack Web Developer
 
 Creating and deploying a RESTful API full CRUD-based app in React.js from scratch, without the use of AI tab-completions,
 is a significant milestone for any web development student, and a still a big task for senior devs.
@@ -46,9 +46,11 @@ don't worry - you should easily get the hang of it if you have a firm grasp on J
   - CSS (global, modules, or Tailwind are recommend)
   - Extra Libraries: react-hot-toast, and types for TypeScript
 
-### Setting up Backend
+## Setting up Backend
 
 > I prefer terminal and that's the route I'm going to take
+
+### 1st scaffold project by installing packages and setting up directories
 
 1. Open your terminal and make and change into a directory for this project.
 
@@ -72,8 +74,8 @@ mkdir client
 ```bash
 cd server
 npm init -y
-npm install npm i express cors dotenv morgan mongoose
-npm install -D typescript tsx ts @types/node @types/express @types/morgan @types/cors
+npm install express cors dotenv morgan mongoose
+npm install -D typescript tsx @types/node @types/express @types/morgan @types/cors
 ```
 
 <br />
@@ -82,3 +84,111 @@ What did we do? With the above commands we initialized a **Node.js** project wit
 installed all of the libaries that'll be used on our server while the `npm install
 -D` installed all of the libaries we'll be using during development, TypeScript and
 its types.
+
+4. Create a TypeScript Config file:
+
+```bash
+npx tsc --init
+```
+
+<br />
+
+You should now see a `tsconfig.json` file while many default options and several commented out.
+Here is my full tsconfig.json, just a few changes beyond the defaults:
+
+```json
+{
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./dist",
+    "module": "nodenext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "types": ["node"],
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  }
+}
+```
+
+_I recommend you copy and paste that exactly as above into your tsconfig.json file_
+
+<br />
+
+5. Edit `package.json`'s scripts & type:
+
+**scripts section:**
+
+```json
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+```
+
+<br />
+**type section:**
+
+```json
+"type": "module",
+```
+
+<br />
+
+With the changes above we can now run `npm run dev` to test our app and have `tsx` watch for any updates to instantly
+update our dev environment. With `npm run build` and `npm run start` to build and run a production version of our app.
+Notice that it says `server.ts` - that tells you that we're planning to create `server.ts` to serve our backend app.
+
+### Before we go any further we should intiailize a git repo:
+
+6. Create .gitignore:
+
+```bash
+touch .gitignore
+```
+
+<br />
+
+7. Open & edit the **.gitignore** file to ignore node_modules
+
+```text
+// .gitignore
+node_modules
+dist
+.env
+```
+
+<br />
+
+8. Intiailize a git repository
+
+I don't know about you, but my computer always makes a hidden `.DS_Store` file.
+So before I initialize git at the root, I alwaysccreate another `.gitignore`
+and add **.DS_Store** to that file. However, this isn't required. Up to you.
+
+- We'll `cd` back to the root and then initialize git
+
+```bash
+cd ..
+git init
+git add . -A
+git commit -m "Initial commit" -m "Setup basic framework for a MERN stack backend"
+```
+
+_For the rest of the guide I won't advise when you should **git add/commit/push**_
+
+<br />
