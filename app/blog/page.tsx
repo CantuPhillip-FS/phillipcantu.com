@@ -19,12 +19,6 @@ const Blog = () => {
       subtitle:
         "Creating and deploying a RESTful API full CRUD-based app in React.js from scratch, without the use of AI tab-completions, is a significant milestone for any web development student, and it's still a big task for senior devs.",
     },
-    {
-      path: "#",
-      title: "Test Title B",
-      subtitle:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ullamcorper blandit quam at fermentum. Etiam lobortis nec elit sed consectetur. Nullam et mi commodo, ultrices nibh quis, sagittis turpis. Aliquam rhoncus nibh laoreet congue cursus. Sed sed dui feugiat, cursus nisl vitae, molestie quam. Mauris nec lorem sit amet diam tristique interdum vel at nulla. Nam porttitor lectus eros, quis interdum purus dictum vel. Aenean ipsum dui, bibendum sit amet ante bibendum, volutpat volutpat purus. Etiam dapibus mi id varius hendrerit. Mauris sed orci nisl. Phasellus iaculis massa ut neque fringilla imperdiet. Curabitur quis quam in enim laoreet porttitor eu sit amet magna. Vivamus quis tortor tincidunt, tincidunt turpis ac, sodales sem. Donec maximus ligula pharetra, efficitur dui at, maximus ligula. Aenean feugiat ex enim, feugiat porttitor sapien euismod sit amet. Morbi elementum, diam a lacinia aliquet, magna odio venenatis nibh, vitae fermentum arcu ante dictum nunc. Sed consequat leo libero. Cras non ante eu nisi iaculis tincidunt. Nunc maximus nisl ac mi condimentum, et imperdiet ipsum iaculis. Suspendisse potenti. Curabitur non purus libero. Nulla lacinia, nibh vel imperdiet iaculis, libero ante congue velit, nec lobortis purus nunc ac eros. Proin vitae suscipit tellus, id euismod purus. Nulla sollicitudin sed nisl vitae imperdiet.",
-    },
   ];
 
   return (
@@ -52,9 +46,6 @@ const Blog = () => {
                 <span className="text-gray-800 text-3xl font-bold">&#34;</span>
                 {post.subtitle}
               </h3>
-              <p className="text-sm text-gray-800">
-                <em>p.s. this is the only linked/viewable blog post</em>
-              </p>
             </article>
           </Link>
         ))}
