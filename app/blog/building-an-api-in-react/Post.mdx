@@ -1,6 +1,5 @@
 import Image from "next/image";
 import vsCodeScreenshot from "./vscode-screenshot-01.png";
-import currentDirectory from "./vscode-screenshot-02.png";
 import testNodeServer from "./vscode-screenshot-03.png";
 
 export const metadata = {
@@ -236,29 +235,16 @@ In the commands below we're first changing directory back to our / root.
 
 Now, let's get into the real action. We are going to separate our app logic from our server definition.
 
-10. In the `/server` directory, create the file structure:
+10. In the `/server` directory, let's finally create the server.ts file:
 
     ```bash
     cd server
     touch server.ts
-    mkdir app && cd app
-    touch index.ts
     ```
 
-Your IDE should now look like this:
+### The App Logic (`/server/index.ts`)
 
-<Image
-  src={currentDirectory}
-  width={824}
-  height={828}
-  preload={false}
-  alt="VS Code file tree showing server.ts and app/index.ts structure"
-  className="max-w-md sm:max-w-lg rounded-md my-4"
-/>
-
-### The App Logic (`/server/app/index.ts`)
-
-Let's define the Express application first. Paste this into `app/index.ts`:
+Let's define the Express application first. Paste this into `index.ts`:
 
 ```typescript
 import express, { type Request, type Response } from "express";
@@ -272,11 +258,9 @@ app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({ message: "API is running.", success: true });
 });
-
-export default app;
 ```
 
-### The Server Entry Point (`/server/server.ts`)
+### The Server Entry Point (`/server.ts`)
 
 Now, let's tell the server to listen for connections. Paste this into `server.ts`:
 
