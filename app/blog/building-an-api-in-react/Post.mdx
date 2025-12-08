@@ -1,6 +1,9 @@
 import Image from "next/image";
+import postmanApiTest from "./postman-api-route-get.png";
+import postmanRootTest from "./postman-root-get.png";
 import vsCodeScreenshot from "./vscode-screenshot-01.png";
 import testNodeServer from "./vscode-screenshot-03.png";
+import routeHandler from "./vscode-screenshot-routeHandler.png";
 
 export const metadata = {
   title: "Building a REST API with MERN & TypeScript | Part 1: The Backend",
@@ -83,12 +86,12 @@ In this post, we will focus on the **Backend**, but here is the full stack:
 
 ---
 
-## Setting up the Backend
+### Setting up the Backend
 
 I prefer using the terminal, so that's the route we're going to take for setup! Yet you're welcome to use your systems's or IDE's
 file browser to create new files and folders. Follow the most efficient workflow for you.
 
-### Step 1: Scaffold the Project
+## Step 1: Scaffold the Project
 
 First, let's create our main project folder and separate directories for our server (backend) and client (frontend).
 
@@ -104,11 +107,11 @@ First, let's create our main project folder and separate directories for our ser
     mkdir client
     ```
 
-### Step 2: Initialize & Install Dependencies
+## Step 2: Initialize & Install Dependencies
 
 Let's dive into the server directory and get our application ready.
 
-3.  Initialize the Node project and install libraries:
+1.  Initialize the Node project and install libraries:
     ```bash
     cd server
     npm init -y
@@ -122,12 +125,15 @@ Let's dive into the server directory and get our application ready.
 - `npm install`: Installed the libraries our server needs to run (Express, Mongoose, etc.).
 - `npm install -D`: Installed "Dev Dependencies", the tools we only need while coding, specifically TypeScript and its types.
 
-### Step 3: TypeScript Configuration
+## Step 3: TypeScript Configuration
 
-4.  Create the TypeScript config file:
-    ```bash
-    npx tsc --init
-    ```
+Create the TypeScript config file:
+
+```bash
+npx tsc --init
+```
+
+<br />
 
 You will now see a `tsconfig.json` file. Replace its contents with the configuration below to match my setup (I've tweaked a few defaults for better modern node support):
 
@@ -160,9 +166,9 @@ You will now see a `tsconfig.json` file. Replace its contents with the configura
 
 _I recommend you copy and paste this exactly into your `tsconfig.json`._
 
-### Step 4: Configure `package.json`
+## Step 4: Configure `package.json`
 
-5.  Open your `package.json` file. We need to update the scripts and define the project type.
+Open your `package.json` file. We need to update the scripts and define the project type.
 
 **Update the "scripts" section:**
 
@@ -192,33 +198,33 @@ _I recommend you copy and paste this exactly into your `tsconfig.json`._
 - `npm run start`: Runs the production version of the app.
 - Notice `server.ts` in the scripts? That tells us we need to create a file named `server.ts`.
 
-### Step 5: Git Version Control
+## Step 5: Git Version Control
 
 Before going further, let's initialize Git to keep our work safe.
 
-6.  Create a `.gitignore` file:
+1. Create a `.gitignore` file:
 
-    ```bash
-    touch .gitignore
-    ```
-
-<br />
-
-7.  Edit `.gitignore` to prevent massive folders from being uploaded:
-
-    ```text
-    // .gitignore
-    node_modules
-    dist
-    .env
-    ```
+   ```bash
+   touch .gitignore
+   ```
 
 <br />
 
-8.  **Pro Tip:** If you are on a Mac, you probably have annoying hidden `.DS_Store` files everywhere. I always create
+2. Edit `.gitignore` to prevent massive folders from being uploaded:
+
+   ```text
+   // .gitignore
+   node_modules
+   dist
+   .env
+   ```
+
+<br />
+
+3.  **Pro Tip:** If you are on a Mac, you probably have annoying hidden `.DS_Store` files everywhere. I always create
     a `.gitignore` at the root and add `.DS_Store` to it. This is totally not required.
 
-9.  Initialize the repository:
+4.  Initialize the repository:
 
 In the commands below we're first changing directory back to our / root.
 
@@ -231,16 +237,16 @@ In the commands below we're first changing directory back to our / root.
 
 ---
 
-## 💻 Setup the Express.js Server
+## 💻 Step 6: Setup the Express.js Server
 
 Now, let's get into the real action. We are going to separate our app logic from our server definition.
 
-10. In the `/server` directory, let's finally create the server.ts file:
+In the `/server` directory, let's finally create the server.ts file:
 
-    ```bash
-    cd server
-    touch server.ts
-    ```
+```bash
+cd server
+touch server.ts
+```
 
 ### The App Logic (`/server/index.ts`)
 
@@ -255,7 +261,7 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (_req: Request, res: Response) => {
   res.status(200).json({ message: "API is running.", success: true });
 });
 ```
@@ -266,7 +272,6 @@ Now, let's tell the server to listen for connections. Paste this into `server.ts
 
 ```typescript
 import "dotenv/config";
-import app from "./app/index.js";
 
 const PORT = Number(process.env.PORT) || 3000;
 
@@ -277,9 +282,9 @@ app.listen(PORT, () => {
 
 ---
 
-## 🎉 Test Your Server\!
+## 🎉 Test Your Server
 
-11. Open your terminal and run the dev command:
+Open your terminal and run the dev command:
 
 ```bash
 npm run dev
@@ -308,7 +313,121 @@ Server is running on 3000
 
 ### What's Next?
 
-We have a running server, but it doesn't do much yet. In the next part of this series, we will connect dedicated API routes,
-connect to a database and build the frontend Client\!
+We have a running server, but it doesn't do much yet. Let's create a dedicated route
+handler for our CRUD operations so we can actually talk to our API.
 
-_To Be Continued..._
+## 👤 Step 7: Creating User Routes & Separation of Concerns
+
+We want to keep our codebase clean. In the professional world, we separate our "routes" (the URL paths)
+from our "server config" (the startup logic).
+
+### Step 1: Directory Structure
+
+Let's organize our files. Inside your existing `server` folder, we need to
+create a place for our routes.
+
+1. Create an `app` directory within your server.
+2. Create a folder named `routes` within `app`.
+3. Inside `routes`, create a file named `index.ts`.
+
+**Your file tree should now look like this:**
+
+```text
+server/
+├── app/
+│   ├── routes/
+│   │   └── index.ts  <-- We are here
+│   └── index.ts
+├── server.ts
+└── ...
+```
+
+### Step 2: Define the Route Handler
+
+Open that newly created `server/app/routes/index.ts` file. We are going to use the Express Router to set up a clean `GET` endpoint.
+
+Copy and paste the following code:
+
+```typescript
+import express, { type Request, type Response } from "express";
+
+// Create a router instance
+const router = express.Router();
+
+// Define a GET route for the root of this router
+router.get("/", (req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    message: `${req.method} - Request made`,
+  });
+});
+
+export default router;
+```
+
+**What does this code do?** 🧐
+
+- **`express.Router()`**: This creates a "mini-app" capable of handling requests. It allows us to bundle all our related routes (like user routes) together and export them.
+
+- **The Request/Response Types**: Since we are using TypeScript, we import `Request` and `Response` to ensure we have autocomplete and type safety on our `req` and `res` objects.
+
+- **`router.get`**: This tells the API to listen for a HTTP **GET** request. If we wanted to create data, we would use `.post`; to update, `.put` or `.patch`; and to remove, `.delete`.
+
+### Step 3: Wire it up
+
+Now we need to tell our main application to _use_ these routes.
+
+Open your `server.ts` and put in the following code:
+
+```typescript
+import cors from "cors";
+import routeHandler from "./app/routes/index.js";
+
+app.use(cors());
+app.use("/api/v1", routeHandler);
+```
+
+Here's a full overview of what your `server.ts` and `index.ts` file should look like now:
+
+<Image
+  src={routeHandler}
+  width={3216}
+  height={1944}
+  preload={false}
+  alt="Screenshot of VS Code showing current status of backend server's route handler"
+  className="max-w-md sm:max-w-lg md:max-w-2xl rounded-md mt-4"
+/>
+
+### Step 4: Test the Endpoint
+
+1. Save your files.
+2. Ensure that you're still at, or navigate to `/server` in your terminal and run `npm run dev`
+3. Go to your browser or a tool like Postman and visit: http://localhost:3000/api/v1
+
+**You should see:**
+
+```json{
+  "success": true,
+  "message": "GET - Request made"
+}
+```
+
+<Image
+  src={postmanRootTest}
+  width={3216}
+  height={1944}
+  preload={false}
+  alt="Screenshot of Postman showing GET response from localhost root"
+  className="max-w-md sm:max-w-lg md:max-w-2xl rounded-md mt-4"
+/>
+
+<Image
+  src={postmanApiTest}
+  width={3216}
+  height={1944}
+  preload={false}
+  alt="Screenshot of Postman showing GET response from localhost api v1 route"
+  className="max-w-md sm:max-w-lg md:max-w-2xl rounded-md mt-4"
+/>
+
+Boom! 💥 You now have a modular routing system ready for specific User, Post, or Product data.
