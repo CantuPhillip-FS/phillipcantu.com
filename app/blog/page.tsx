@@ -19,6 +19,12 @@ const Blog = () => {
       subtitle:
         "Creating and deploying a RESTful API full CRUD-based app in React.js from scratch, without the use of AI tab-completions, is a significant milestone for any web development student, and it's still a big task for senior devs.",
     },
+    {
+      path: "2025-React-Native-Install-Guide",
+      title: "2025 React Native Install Guide",
+      subtitle:
+        "A Full and Complete Updated Guide on installing and creating a React Native mobile app on macOS Tahoe. Including how to use Nativewind or Tailwind CSS.",
+    },
   ];
 
   return (

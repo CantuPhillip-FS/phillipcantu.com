@@ -135,7 +135,7 @@ const components: MDXComponents = {
     return (
       <code
         className={[
-          "block w-full overflow-x-auto rounded-lg bg-slate-900/70 px-4 py-3",
+          "block w-full overflow-x-auto rounded-lg bg-slate-900/70 px-4 py-3 mb-6",
           "text-sm font-mono text-slate-100",
           "shadow-lg shadow-slate-900/60",
           className,
