@@ -9,11 +9,6 @@ type Post = {
 const Blog = () => {
   const blogPosts: Post[] = [
     {
-      path: "my-first-blog-post",
-      title: "Hi. - first blog post",
-      subtitle: "a simple intro",
-    },
-    {
       path: "building-an-api-in-react",
       title: "Building an API in React.js",
       subtitle:
