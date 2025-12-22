@@ -20,6 +20,12 @@ const Blog = () => {
       subtitle:
         "A Full and Complete Updated Guide on installing and creating a React Native mobile app on macOS Tahoe. Including how to use Nativewind or Tailwind CSS.",
     },
+    {
+      path: "jwt-in-a-mern-stack",
+      title: "JWT in a MERN Stack",
+      subtitle:
+        "A practical, evergreen guide to using JWTs for authentication in a MERN app, including the request flow, protected routes, and common gotchas.",
+    },
   ];
 
   return (
