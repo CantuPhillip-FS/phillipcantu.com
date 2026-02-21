@@ -18,21 +18,21 @@ It serves as both a **personal portfolio** and a **blog**, built with **Next.js 
 
 This application is continuously deployed on Vercel and available at:
 
-- <a href="https://deploy-web-apps.vercel.app/" target="_blank">deploy-web-apps.vercel.app</a>
-- <a href="https://phillipcantu.com/" target="_blank">phillipcantu.com</a>
+- <https://deploy-web-apps.vercel.app/>deploy-web-apps.vercel.app</a>
+- <https://phillipcantu.com/>phillipcantu.com</a>
 
 ## 📝 MDX Resources Used
 
 These resources directly supported the setup and customization of MDX:
 
 - **Next.js MDX Documentation:**  
-  https://nextjs.org/docs/app/guides/mdx
+  <https://nextjs.org/docs/app/guides/mdx>
 
 - **YouTube – Lee Robinson (@leerob): “MDX with Next.js App Router”**  
-  https://www.youtube.com/watch?v=34bRv6cQezo
+  <https://www.youtube.com/watch?v=34bRv6cQezo>
 
 - **YouTube – Alex (@apestein-dev): “Best Way to Use Markdown in Next.js (Blogs/Docs)”**  
-  https://www.youtube.com/watch?v=0pEbT-NwmHk
+  <https://www.youtube.com/watch?v=0pEbT-NwmHk>
 
 ## 🔧 Recent Commit Highlights
 
