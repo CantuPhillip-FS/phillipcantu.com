@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
+import ContactSheet from "./ContactSheet";
 
 type NavLinks = {
     path: string;
@@ -25,6 +26,7 @@ const Navbar = () => {
                             {page.slug}
                         </Link>
                     ))}
+                    <ContactSheet />
                 </nav>
             </header>
             <Separator className="w-full max-w-lg mb-4 mx-auto" />

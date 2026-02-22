@@ -13,8 +13,8 @@
     --sh-comment: #9ca3af; /* gray-400 */
     --sh-number: #f97316; /* orange-500 */
     --radius: 0.625rem;
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    --background: oklch(13% 0.028 261.692);
+    --foreground: oklch(1 0 0);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
@@ -103,7 +103,7 @@
     --accent: oklch(0.269 0 0);
     --accent-foreground: oklch(0.985 0 0);
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(55.4% 0.046 257.417);
+    --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.556 0 0);
     --chart-1: oklch(0.488 0.243 264.376);
