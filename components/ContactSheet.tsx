@@ -13,18 +13,17 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
-import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
 
 const ContactSheet = () => {
-    const [loading, setLoading] = useState(false);
     const [form, setForm] = useState({
         name: "",
         email: "",
         message: "",
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -32,9 +31,16 @@ const ContactSheet = () => {
         setForm({ ...form, [e.target.id]: e.target.value });
     };
 
+    const isFormValid =
+        form.name.trim() !== "" &&
+        form.email.trim() !== "" &&
+        form.message.trim() !== "";
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setLoading(true);
+
+        if (!isFormValid || isSubmitting) return;
+        setIsSubmitting(true);
 
         const getDate = new Date().toLocaleString("en-US", {
             weekday: "long",
@@ -47,39 +53,44 @@ const ContactSheet = () => {
         });
 
         try {
-            // TODO: Replace with your API route or email service
-            console.log("Form submitted:", form);
-
-            // Reset form
-            setForm({ name: "", email: "", message: "" });
-            // toast.success("Message sent successfully!", {
-            //     description: getDate,
-            // });
-            toast.promise(
-                () =>
-                    new Promise<void>((resolve) =>
-                        setTimeout(() => resolve(), 2000),
-                    ),
+            await toast.promise(
+                fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(form),
+                }).then(async (res) => {
+                    if (!res.ok) {
+                        const data = await res.json();
+                        throw new Error(data.error || "Failed to send message");
+                    }
+                    return res.json();
+                }),
                 {
                     loading: "Sending...",
-                    success: () => "Message sent successfully!",
-                    error: "Error",
+                    success: "Message sent successfully!",
+                    error: (err) =>
+                        err.message ||
+                        "Failed to send message. Please try again.",
                     description: getDate,
                     position: "top-center",
                 },
             );
+
+            // Reset form after success
+            setForm({ name: "", email: "", message: "" });
         } catch (error) {
             console.error(error);
-            toast.error("Failed to send message. Please try again.");
         } finally {
-            setLoading(false);
+            setIsSubmitting(false);
         }
     };
 
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button>Contact</Button>
+                <Button variant="nav">Contact</Button>
             </SheetTrigger>
             <SheetContent className="sm:max-w-md overflow-y-auto">
                 <SheetHeader>
@@ -129,19 +140,21 @@ const ContactSheet = () => {
                             />
                         </div>
                     </div>
-                    <SheetFooter>
-                        <Button type="submit" disabled={loading}>
-                            {loading ? (
-                                <>
-                                    <Spinner className="h-4 w-4 mr-2" />
-                                    Sending...
-                                </>
-                            ) : (
-                                "Send Message"
-                            )}
+                    <SheetFooter className="flex flex-col w-full items-center">
+                        <Button
+                            type="submit"
+                            disabled={!isFormValid || isSubmitting}
+                            className="text-foreground w-full hover:bg-accent hover:text-accent-foreground"
+                        >
+                            Send Message
                         </Button>
                         <SheetClose asChild>
-                            <Button variant="outline">Close</Button>
+                            <Button
+                                variant="outline"
+                                className="w-full max-w-sm hover:bg-accent-foreground hover:text-accent"
+                            >
+                                Close
+                            </Button>
                         </SheetClose>
                     </SheetFooter>
                 </form>
