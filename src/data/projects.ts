@@ -14,7 +14,7 @@ export const PROJECTS: Project[] = [
       "AI-powered job search app: upload a resume, get ranked job matches with fit signals, coach weak resume bullets, and track applications. Built with a team of four during Flatiron School's AI Engineering apprenticeship.",
     tech: ["React", "TypeScript", "FastAPI", "Python", "OpenAI", "Supabase"],
     repo: "https://github.com/dmboynton56/matchpoint",
-    live: "https://matchpoint-web-gamma.vercel.app/jobs",
+    live: "https://matchpoint-web-gamma.vercel.app/",
     note: "Team of four",
   },
   {
