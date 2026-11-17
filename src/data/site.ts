@@ -1,11 +1,12 @@
 export const SITE = {
   name: "Phillip Cantu",
-  title: "Phillip Cantu — Full-Stack Developer",
+  title: "Phillip Cantu — Software Engineer at Hgraph",
   description:
-    "Phillip Cantu is a full-stack developer and U.S. Army veteran building fast, clean web and mobile apps with TypeScript, React, Node.js, and Python.",
+    "Phillip Cantu is a Software Engineer at Hgraph and a U.S. Army veteran, building fast, clean web apps and data infrastructure with TypeScript, React, GraphQL, and Postgres.",
   url: "https://phillipcantu.com",
   email: "hello@phillipcantu.com",
-  role: "Full-Stack Developer",
+  role: "Software Engineer",
+  company: { name: "Hgraph", url: "https://www.hgraph.com" },
   socials: {
     github: "https://github.com/hereisphil",
     linkedin: "https://www.linkedin.com/in/phillipcantu/",

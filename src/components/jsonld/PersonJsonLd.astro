@@ -11,6 +11,7 @@ const schema = {
       url: SITE.url,
       email: `mailto:${SITE.email}`,
       jobTitle: SITE.role,
+      worksFor: { "@type": "Organization", name: SITE.company.name, url: SITE.company.url },
       description: SITE.description,
       image: `${SITE.url}/og/og-default.png`,
       sameAs: [SITE.socials.github, SITE.socials.linkedin, SITE.socials.x],

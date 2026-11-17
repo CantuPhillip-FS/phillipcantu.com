@@ -11,6 +11,20 @@ export type Role = {
 
 export const EXPERIENCE: Role[] = [
   {
+    title: "Software Engineer",
+    company: "Hgraph",
+    companyUrl: "https://www.hgraph.com",
+    period: "Nov 2026 – Present",
+    location: "Remote",
+    highlights: [
+      "Rejoined Hgraph and became the primary engineer on LionEyes Records, a client music label whose fans buy albums as NFTs on Hedera, stream the songs they own, and unlock perks by tier — shipping 36 merged PRs and 8 production releases in my first two and a half weeks.",
+      "Built crypto checkout (pay with HBAR or USDC from your own wallet) where payment and the album NFT move in one atomic Hedera transaction, plus HashPack wallet sign-in with multi-wallet accounts.",
+      "Shipped holder-only extras: artists send videos or photos to every album holder, chosen tiers, or one fan, each minted as its own NFT that carries the album's resale royalties.",
+      "Cut first-play time for full songs from up to a minute to about a second by streaming masters while they decrypt, and cut production deploys from ~9 to ~5 minutes.",
+      "Own growth engineering for hgraph.com: GA4 lead tracking, UTM attribution through to sign-up, llms.txt, canonical-URL redirects, a rebuilt campaign landing page, and in-house onboarding and newsletter email replacing Loops and beehiiv.",
+    ],
+  },
+  {
     title: "Software Engineer Apprentice → Junior Software Engineer",
     company: "Hgraph",
     companyUrl: "https://www.hgraph.com",
